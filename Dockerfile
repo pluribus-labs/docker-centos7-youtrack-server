@@ -4,15 +4,15 @@ FROM pluribuslabs/centos7-oracle-jdk-7
 
 MAINTAINER Pluribus Labs Docker Dev <docker-dev@pluribuslabs.com>
 
-RUN yum -y install wget hostname
+RUN yum -y install wget hostname unzip
 ENV YOUTRACK_PACKAGE youtrack-6.5.16853.zip
 ENV YOUTRACK_DOWNLOAD http://download-cf.jetbrains.com/charisma
 ENV YOUTRACK_PORT 8080
 
 RUN mkdir -p /opt/youtrack
 RUN wget -nv $YOUTRACK_DOWNLOAD/$YOUTRACK_PACKAGE
-RUN unzip -d /opt/youtrack $YOUTRACK_PACKAGE
-RUN rm $YOUTRACK_PACKAGE
+RUN unzip -d /opt/youtrack $YOUTRACK_PACKAGE &&\
+  rm $YOUTRACK_PACKAGE
 EXPOSE $YOUTRACK_PORT
 
 # Looks like ENV variables don't get subbed in the CMD command hence the hardcode
