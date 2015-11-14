@@ -9,9 +9,10 @@ ENV YOUTRACK_PACKAGE youtrack-6.5.16853.zip
 ENV YOUTRACK_DOWNLOAD http://download-cf.jetbrains.com/charisma
 ENV YOUTRACK_PORT 8080
 
+RUN mkdir -p /opt/youtrack
 RUN wget -nv $YOUTRACK_DOWNLOAD/$YOUTRACK_PACKAGE
-RUN unzip $YOUTRACK_PACKAGE -d /opt/youtrack &&\
-   rm $YOUTRACK_PACKAGE
+RUN unzip $YOUTRACK_PACKAGE -d /opt/youtrack
+RUN rm $YOUTRACK_PACKAGE
 EXPOSE $YOUTRACK_PORT
 
 # Looks like ENV variables don't get subbed in the CMD command hence the hardcode
