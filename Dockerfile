@@ -4,6 +4,10 @@ FROM pluribuslabs/centos7-oracle-jdk-7
 
 MAINTAINER Pluribus Labs Docker Dev <docker-dev@pluribuslabs.com>
 
+#Youtrack data stored in a volume to help with container upgrade
+VOLUME ["/data/youtrack"]
+ENV YOUTRACK_DATA_PATH /data/youtrack
+
 RUN yum -y install wget hostname unzip
 ENV YOUTRACK_PACKAGE youtrack-6.5.16853.zip
 ENV YOUTRACK_DOWNLOAD http://download-cf.jetbrains.com/charisma
