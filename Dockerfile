@@ -8,6 +8,8 @@ MAINTAINER Pluribus Labs Docker Dev <docker-dev@pluribuslabs.com>
 
 VOLUME ["/data/youtrack"]
 VOLUME ["/opt/youtrack/conf"]
+VOLUME ["/opt/youtrack/data"]
+
 ENV YOUTRACK_DATA_PATH /data/youtrack
 
 ENV APP_VERSION 6.5
