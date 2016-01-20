@@ -22,7 +22,7 @@ ENV YOUTRACK_PORT 8080
 RUN yum -y install wget hostname unzip
 
 RUN mkdir -p /opt/youtrack
-RUN wget -nv --output-document=youtrack.zip $YOUTRACK_DOWNLOAD/$YOUTRACK_PACKAGE.zip
+RUN wget -nv --output-document=youtrack.zip $YOUTRACK_DOWNLOAD/$YOUTRACK_PACKAGE
 RUN unzip youtrack.zip -d /opt/youtrack &&\
   rm youtrack.zip
 
