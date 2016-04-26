@@ -19,12 +19,11 @@ ENV YOUTRACK_PACKAGE youtrack-$APP_BUILD.zip
 ENV YOUTRACK_DOWNLOAD https://download.jetbrains.com/charisma
 ENV YOUTRACK_PORT 8080
 
-RUN yum -y install wget hostname unzip
-
-RUN mkdir -p /opt/youtrack
-RUN wget -nv --output-document=youtrack.zip $YOUTRACK_DOWNLOAD/$YOUTRACK_PACKAGE
-RUN unzip youtrack.zip -d /opt/youtrack &&\
-  rm youtrack.zip
+RUN yum -y install wget hostname unzip && \
+    mkdir -p /opt/youtrack && \
+    wget -nv --output-document=youtrack.zip $YOUTRACK_DOWNLOAD/$YOUTRACK_PACKAGE && \
+    unzip youtrack.zip -d /opt/youtrack &&\
+    rm youtrack.zip
 
 EXPOSE $YOUTRACK_PORT
 
